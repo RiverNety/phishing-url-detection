@@ -11,7 +11,7 @@ from tensorflow.keras import backend as K
 from tensorflow.keras.callbacks import CSVLogger
 from utils import load_model, save_model
 from tensorflow.keras.utils import plot_model
-
+from keras import metrics
 
 class CNNC:
 
