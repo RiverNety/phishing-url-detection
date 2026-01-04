@@ -79,7 +79,7 @@ class CNNC:
 
     def load_model(self, fileModelJSON, fileWeights):
         self.model = load_model(fileModelJSON, fileWeights)
-        self.model.compile(optimizer=self.adam, loss='binary_crossentropy', metrics=['accuracy','recall','f1_score','precision'])
+        self.model.compile(optimizer=self.adam, loss='binary_crossentropy', metrics=['accuracy','recall','precision'])
 
     def train_model(self, x_train, target_train, x_val, target_val, epochs=5, batch_size=32):
         print(f"Training CNN model with {epochs} epochs and batch size {batch_size}")
