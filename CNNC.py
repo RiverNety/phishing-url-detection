@@ -96,11 +96,11 @@ class CNNC:
         print("Testing CNN model")
         return self.model.evaluate(x_test, target_test, verbose=1)
 
-    def predict(self, x_input):
+    def predict(self, x_input, lim=0.5):
         url_int_tokens = [[printable.index(x) + 1 for x in x_input if x in printable]]
         X = sequence.pad_sequences(url_int_tokens, maxlen=self.max_len)
         p = self.model.predict(X, batch_size=1)
-        return "benign" if p < 0.5 else "malicious"
+        return "benign" if p < lim else "malicious"
 
     def export_plot(self):
         plot_model(self.model, to_file='CNN.png', show_shapes=True)
