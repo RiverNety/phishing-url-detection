@@ -82,7 +82,7 @@ class LSTMC:
         url_int_tokens = [[printable.index(x) + 1 for x in x_input if x in printable]]
         X = sequence.pad_sequences(url_int_tokens, maxlen=self.max_len)
         p = self.model.predict(X, batch_size=1)
-        return "benign" if p < lim else "malicious"
+        return "benign" if p > lim else "malicious"
 
     def export_plot(self):
         plot_model(self.model, to_file='LSTM.png', show_shapes=True)
